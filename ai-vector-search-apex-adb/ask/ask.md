@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, we will load a document and ask a question about it. This process involves launching the application, uploading a document to object storage, selecting the document, previewing it, asking a question, displaying the results, and viewing the PL/SQL call that generates the response.
+In this lab, we will load a document and ask a question about it. This process involves launching the application, uploading a document to object storage, selecting the document, previewing it, asking a question, displaying the results, and viewing the PL/SQL call that generates the response. There is no need to run any of the PLSQL in this lab.  It will be executed by APEX.
 
 ## Objectives
 
@@ -15,9 +15,8 @@ By following this guide, you will:
 - Display the results of the question.
 - View the PL/SQL call in the APEX Page Designer.
 
-## Step-by-Step Guide
 
-### Step 1: Launch Application
+## Task 1: Launch Application
 
 1. On the application home page, click on the application we uploaded and then select "Run Application".
    ![Application Home](images/vector.png)
@@ -25,7 +24,7 @@ By following this guide, you will:
 2. Sign into the application with your credentials.
 
 
-### Step 2: Load Document to Object Store
+## Task 2: Load Document to Object Store
 
 1. Click on the blue "Upload File" button.
 2. Select the file you want to upload from your computer.
@@ -78,25 +77,21 @@ FROM apex_application_temp_files
 WHERE name = :P12_FILE;
 ```
 
-### Step 3: Select Document from Drop-Down Menu
+## Task 3: Select Document from Drop-Down Menu
 
 1. Select the item you just uploaded from the drop-down menu.
 
-### Step 4: Preview
+2. You can view the document you just uploaded by selecting the preview check box.
 
-1. You can view the document you just uploaded by selecting the preview check box.
+## Task 4: Type Question
 
-### Step 5: Type Question
+1. After selecting the document, you can go ahead and type a question about the document and hit return.
 
-1. After selecting the document, you can go ahead and ask a question about the document!
+After sending your question, you can view the results of the answer in the chat box.
 
-### Step 6: Display Results
-
-1. After sending your question, you can view the results of the answer in the chat box.
-
-2. We can see the PL/SQL call in the APEX Page Designer on page 3.
+We can see the PL/SQL call in the APEX Page Designer on page 3.
    ![Page Designer](images/pagedesign.png)
-3. On the right-hand side, we can view the call that is made to generate the response.
+On the right-hand side, we can view the call that is made to generate the LLM response.
    ![PL/SQL Call](images/plsql.png)
 
 ### PL/SQL Code
@@ -117,7 +112,7 @@ BEGIN
 END;
 ```
 
-Explanation of PL/SQL code:
+### Explanation of PL/SQL code:
 
 DECLARE: This section is used to declare the variable result_clob, which will hold the response from the LLM.
 
@@ -125,6 +120,13 @@ BEGIN: Marks the beginning of the executable part of the PL/SQL block.
 result_clob := admin.generate_text_response2(:P3_QUESTION,:P3_ID,7) calls the generate_text_response2 function. It passes three parameters:
 1. :P3_QUESTION - The question entered by the user. 
 2. :P3_ID - The ID of the document selected by the user.
-3. :7 - A static parameter to return the top 7 chunks
+3. :7 - A static parameter to return the top 7 chunks.
 
-Finally assign the result of the function to the Apex page item :P3_ANSWER. If the question is null, the answer will also be null; otherwise, it assigns the result of the function call.
+Finally assign the result of the function to the APEX page item :P3_ANSWER. If the question is null, the answer will also be null; otherwise, it assigns the result of the function call.
+
+## Conclusion
+In this workshop we showcased an AI RAG application using Oracle APEX, Oracle Autonomous Database 23ai with AI Vector Search, and the Oracle Cloud Object Storage.  These products and services are important building blocks for many AI solutions.
+
+## Acknowledgements
+* **Authors** - Blake Hendricks
+* **Last Updated By/Date** -  July 2024
