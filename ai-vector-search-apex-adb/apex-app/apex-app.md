@@ -1,4 +1,4 @@
-# Lab 3: APEX Application Setup
+# APEX Application Setup
 
 ## Introduction
 

@@ -1,4 +1,4 @@
-# Lab 3: Create the database vector tables
+# Create the database vector tables
 
 ## Introduction
 
