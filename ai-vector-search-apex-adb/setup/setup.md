@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Lab 1, before we begin the AI RAG steps we will guide you through the steps to set up and configure your Oracle Cloud Infrastructure (OCI) environment. This lab focuses on two main areas: Identity Setup and Bucket Setup. By the end of this lab, you will have a functional compartment and policies for managing your cloud resources, as well as a properly configured bucket for storing and managing your objects in OCI.
+Welcome to Lab 1, before we begin the AI RAG steps we will guide you through the steps needed for APEX to access Oracle Object Storage. The lab focuses on two main areas: Identity Setup and Bucket Setup. By the end of this lab, you will have a functional compartment and policies for managing your cloud resources, as well as a properly configured bucket for storing and managing your objects in OCI.
 
 In the Identity Setup section, you will learn how to create compartments, manage policies, and set up users with the necessary permissions to interact with OCI resources. Following this, the Bucket Setup section will walk you through the process of creating and configuring a storage bucket, essential for managing data and objects in your cloud environment.
 
@@ -20,7 +20,6 @@ By completing this lab, you will achieve the following objectives:
 - Create and configure a storage bucket in OCI.
 - Generate a Pre-Authenticated Request (PAR) for secure bucket access.
 
-With these objectives in mind, you will be well-equipped to manage and utilize Oracle Cloud Infrastructure effectively.
 
 ### Task 1: Create an OCI Compartment
 
