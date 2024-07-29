@@ -39,7 +39,7 @@ prompt APPLICATION 100 - Vector Apex
 -- Application Export:
 --   Application:     100
 --   Name:            Vector Apex
---   Date and Time:   07:19 Monday July 29, 2024
+--   Date and Time:   16:55 Monday July 29, 2024
 --   Exported By:     VECTOR
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -19908,7 +19908,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_use_cache_before_default=>'NO'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_encrypt_session_state_yn=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(33817711093355099)
@@ -20195,7 +20195,7 @@ wwv_flow_imp_page.create_page_da_action(
 '  apex_debug.message(p_message => :P3_QUESTION);',
 '  apex_debug.message(p_message => :P3_ID);',
 '  apex_debug.message(p_message => ''no P3_ID'');',
-'  result_clob := generate_text_response2(:P3_QUESTION,21,7);',
+'  result_clob := generate_text_response2(:P3_QUESTION,:P3_ID,7);',
 '  ',
 ' ',
 '  -- Print the result',
@@ -20251,9 +20251,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'SQL_STATEMENT'
 ,p_attribute_03=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select id from my_books',
-'where file_name = :P3_STORAGE_ITEMS;',
-''))
-,p_attribute_07=>'P3_STORAGE_ITEMS,P3_ID'
+'where file_name = :P3_STORAGE_ITEMS;'))
+,p_attribute_07=>'P3_STORAGE_ITEMS'
 ,p_attribute_08=>'Y'
 ,p_attribute_09=>'N'
 ,p_wait_for_result=>'Y'
@@ -21853,7 +21852,8 @@ wwv_flow_imp_page.create_page_process(
 '  FOR lr_files in (SELECT * FROM apex_application_temp_files WHERE name = :P12_FILE) ',
 '  LOOP',
 '    --l_url := :G_OCI_BASE_URL || ''/o/'' || apex_util.url_encode(lr_files.filename);',
-'    l_url := :BUCKET_PAR || apex_util.url_encode(lr_files.filename);',
+'    --l_url := :BUCKET_PAR || apex_util.url_encode(lr_files.filename);',
+'    l_url := :BUCKET_PAR || lr_files.filename;',
 '    apex_web_service.g_request_headers(1).name := ''Content-Type'';',
 '    apex_web_service.g_request_headers(1).value := lr_files.mime_type;',
 '    l_response := apex_web_service.make_rest_request(p_url                  => l_url,',
