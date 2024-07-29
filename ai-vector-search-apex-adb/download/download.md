@@ -109,7 +109,7 @@ end;
 
 ## Task 4: Download ONNX embedding models Using DBMS\_CLOUD.GET\_OBJECTS
 
-Now log in as <your_database_user>, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
+Now log in as `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
 
 Run to create the staging directory.
 
