@@ -2,11 +2,9 @@
 
 ## Introduction
 
-Welcome to Lab 1, where we will guide you through the essential steps to set up and configure your Oracle Cloud Infrastructure (OCI) environment. This lab focuses on two main areas: Identity Setup and Bucket Setup. By the end of this lab, you will have a functional compartment and policies for managing your cloud resources, as well as a properly configured bucket for storing and managing your objects in OCI.
+Welcome to Lab 1, before we begin the AI RAG steps we will guide you through the steps to set up and configure your Oracle Cloud Infrastructure (OCI) environment. This lab focuses on two main areas: Identity Setup and Bucket Setup. By the end of this lab, you will have a functional compartment and policies for managing your cloud resources, as well as a properly configured bucket for storing and managing your objects in OCI.
 
 In the Identity Setup section, you will learn how to create compartments, manage policies, and set up users with the necessary permissions to interact with OCI resources. Following this, the Bucket Setup section will walk you through the process of creating and configuring a storage bucket, essential for managing data and objects in your cloud environment.
-
-This lab is designed for administrators and users with administrative rights within the OCI tenancy. It provides step-by-step instructions to ensure you can easily follow along and complete the setup efficiently. Let's get started and prepare your Oracle Cloud Infrastructure environment for optimal performance and management.
 
 Estimated Time: 10 minutes
 
