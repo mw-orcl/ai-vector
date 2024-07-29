@@ -2,18 +2,18 @@
 
 ## Introduction
 
-In this lab you will download the embedding model from Oracle Object Storage to Autonomous Database. The embedding model is used to vectorize the source data. Oracle provides data management with the Oracle Object Storage and Oracle Autonomous Database (ADB). One of the features available is the ability to download files directly from Oracle Object Storage into Oracle ADB using the DBMS_CLOUD.GET_OBJECTS procedure.
+In this lab you will download the embedding model from Oracle Object Storage to Autonomous Database. The embedding model is used to vectorize the source data. Oracle provides data management with the Oracle Object Storage and Oracle Autonomous Database (ADB). One of the features available is the ability to download files directly from Oracle Object Storage into Oracle ADB using the DBMS\_CLOUD.GET\_OBJECTS procedure.
 
 ## Objectives
 
 By following this guide, you will:
 
 - Create a credential object in Oracle ADB for accessing Oracle Object Storage.
-- Grant necessary privileges to use DBMS_CLOUD procedures.
-- Download the ONNX compliant embedding model from Oracle Object Storage into Oracle ADB using DBMS_CLOUD.GET_OBJECTS.
+- Grant necessary privileges to use DBMS\_CLOUD procedures.
+- Download the ONNX compliant embedding model from Oracle Object Storage into Oracle ADB using DBMS\_CLOUD.GET\_OBJECTS.
 - Verify the downloaded model in Oracle ADB.
-- Load the ONNX model into the database using DBMS_VECTOR.LOAD_ONNX_MODEL.
-- Create credential using DBMS_VECTOR to access OCI GenAI service
+- Load the ONNX model into the database using DBMS\_VECTOR.LOAD\_ONNX\_MODEL.
+- Create credential using DBMS\_VECTOR to access OCI GenAI service
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Before we dive into the procedure, make sure you have the following:
 3. **Credentials**: Ensure you have the necessary credentials (access key and secret key) to access Oracle Object Storage.
 4. **Oracle Autonomous Database**: Make sure you have an [Oracle Autonomous Database](https://medium.com/@bhenndricks/how-to-create-an-oracle-autonomous-database-c12d9a05096c) instance running.
 
-### Task 1: Create Credential Object in Oracle ADB
+## Task 1: Create Credential Object in Oracle ADB
 
 First, create a credential object in your Oracle Autonomous Database that will store your Object Storage credentials. This is required for authenticating with Oracle Object Storage. Please set up your [secret keys](https://medium.com/@bhenndricks/secure-access-to-oracle-buckets-in-object-storage-a-step-by-step-guide-32f3242f35e2) 
 
@@ -45,7 +45,7 @@ END;
 /
 ```
 
-### 2. Grant Necessary Privileges
+## Task 2: Grant Necessary Privileges
 
 From ADMIN user, run the following to ensure your database user has the necessary privileges to use DBMS packages. 
 
@@ -62,7 +62,7 @@ GRANT CREATE ANY DIRECTORY TO <your_database_user>;
 
 Replace `<your_database_user>` with your database user.
 
-### 3. Create the credentials for ADB to access the LLM service
+## Task 3: Create the credentials for ADB to access the LLM service
 
 To enable ADB to access an LLM service, API authentication is required. 
 
@@ -70,9 +70,9 @@ To enable ADB to access an LLM service, API authentication is required.
 
 Oracle's GenAI service is an LLM service from Oracle Cloud Infrastructure (OCI). The GenAI service provides access to several LLMs that you can pick from.  
 
-### OCI GenAI Service
+## OCI GenAI Service
 
-For OCI GenAI Service, use the following procedure:
+For OCI GenAI Service, run the following procedure:
 ```sql
 declare
   jo json_object_t;
@@ -89,27 +89,11 @@ begin
 end;
 /
 ```
-OCI GenAI Service example:
-declare
- jo json_object_t;
-begin
- jo := json_object_t();
- jo.put('user_ocid','ocid1.user.oc1..aaaaaaaawfpzqgzsrvb4mh6hcl...');
- jo.put('tenancy_ocid','ocid1.tenancy.oc1..aaaaaaaafj37mytx22oquorc...');
- jo.put('compartment_ocid','ocid1.compartment.oc1..aaaaaaaaqdp7db...');
- jo.put('private_key','MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCP1QXxJxzVj4SX
-ozdfrfIrw0xIjPk4HOUaop2tg/bWcIvJjcrbqnHpX6qL/+aLotaM6+uP0W5tDL97...');
- jo.put('fingerprint','e3:e5:ab:61:99:5...');
- dbms_vector.create_credential(
- credential_name => 'GENAI_CRED',
- params => json(jo.to_string));
-end;
-/
 
-### OpenAI
+## OpenAI
 
-For OpenAI, use the following procedure:
-
+For OpenAI, usrune the following procedure:
+```sql
 /* openai */
 declare
   jo json_object_t;
@@ -121,10 +105,13 @@ begin
     params            => json(jo.to_string));
 end;
 /
+```
 
-### 4. Download ONNX embedding models Using DBMS_CLOUD.GET_OBJECTS
+## Task 4: Download ONNX embedding models Using DBMS\_CLOUD.GET\_OBJECTS
 
 Now log in as <your_database_user>, use the DBMS_CLOUD.GET_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
+
+Run to create the staging directory.
 
 ```sql
 CREATE DIRECTORY staging AS 'stage';
@@ -156,7 +143,7 @@ END;
 /
 ```
 
-### 5. Verify the File in Oracle ADB
+## Task 5: Verify the File in Oracle ADB
 
 After downloading the file, you can verify its existence in Oracle ADB by listing the contents of the directory.
 
@@ -166,7 +153,7 @@ SELECT * FROM TABLE(DBMS_CLOUD.LIST_FILES('staging'));
 
 This query will show you the files present in the specified directory, ensuring that your file has been successfully downloaded.
 
-### 6. Load the ONNX Files into the Database
+## Task 6 Load the ONNX Files into the Database
 
 Once the ONNX files are downloaded and verified, you can load them into the database using DBMS_VECTOR.LOAD_ONNX_MODEL. This step involves loading the models from the downloaded files and configuring them for use in Oracle ADB.  
 
@@ -207,3 +194,6 @@ In this lab we granted privileges to your database user to run the needed PLSQL 
 You may now [proceed to the next lab](#next).
 
 
+## Acknowledgements
+* **Authors** - Blake Hendricks, Vijay Balebail, Milton Wan
+* **Last Updated By/Date** -  July 2024
