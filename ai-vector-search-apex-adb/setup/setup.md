@@ -24,7 +24,7 @@ By completing this lab, you will achieve the following objectives:
 
 With these objectives in mind, you will be well-equipped to manage and utilize Oracle Cloud Infrastructure effectively.
 
-### Task 1: Create and OCI Compartment
+### Task 1: Create an OCI Compartment
 
 1. Click the hamburger icon (≡) at the top left corner of the page.
 2. Click Identity & Security. Hover over Identity and click the Compartment submenu item.

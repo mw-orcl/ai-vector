@@ -22,7 +22,7 @@ Before we dive into the procedure, make sure you have the following:
 1. **Oracle Cloud Account**: You need an active Oracle Cloud account with access to Oracle Object Storage and Oracle Autonomous Database.
 2. **Object Storage Bucket**: Create a bucket in Oracle Object Storage and upload the files you want to download into Oracle ADB.
 3. **Credentials**: Ensure you have the necessary credentials (access key and secret key) to access Oracle Object Storage.
-4. **Oracle Autonomous Database**: Make sure you have an [Oracle Autonomous Database](https://medium.com/@bhenndricks/how-to-create-an-oracle-autonomous-database-c12d9a05096c) instance running.
+4. **Oracle Autonomous Database 23ai**: Make sure you have an [Oracle Autonomous Database 23ai](https://medium.com/@bhenndricks/how-to-create-an-oracle-autonomous-database-c12d9a05096c) instance running.
 
 ## Task 1: Create Credential Object in Oracle ADB
 
