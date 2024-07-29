@@ -47,7 +47,7 @@ END;
 
 ## Task 2: Grant Necessary Privileges
 
-From ADMIN user, run the following to ensure your database user has the necessary privileges to use DBMS packages. 
+From ADMIN user, run the following to ensure your database user has the necessary privileges to use DBMS packages. We are using the user VECTOR when creating the schema objects.  If you use a different user, be sure to use the correct schema user.
 
 ```sql
 CREATE USER <your_database_user> identified by <password>;
