@@ -158,7 +158,7 @@ In the code below we are embedding the user question, performing a vector search
 
 Compile the function `generate_text_response2` below.  It is called from APEX.
 
-### For OpenAI
+## OpenAI
 For connecting and authenticating to OpenAI you must have created the login credentials using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. 
 
 ```sql
@@ -240,7 +240,7 @@ EXCEPTION
 END;
 </copy>
 ```
-### For OCI GenAI 
+## OCI GenAI 
 To use OCI GenAI, replace the above function params with the params_genai parameters below.
 For connecting and authenticating to OCI GenAI you must have created the login credentials using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. 
 

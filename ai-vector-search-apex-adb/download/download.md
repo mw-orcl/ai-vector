@@ -98,7 +98,7 @@ end;
 
 ## OpenAI
 
-For OpenAI, usrune the following procedure:
+For OpenAI, run the following procedure:
 ```sql
 <copy>
 
