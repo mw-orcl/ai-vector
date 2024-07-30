@@ -49,22 +49,20 @@ END;
 
 ## Task 2: Grant Necessary Privileges
 
-From ADMIN user, run the following to ensure your database user has the necessary privileges to use DBMS packages. We are using the user VECTOR when creating the schema objects.  If you use a different user, be sure to use the correct schema user.
+From ADMIN user, run the following to ensure your database user has the necessary privileges to use DBMS packages. We are using the user VECTOR when creating the schema objects.  If you use a different user, be sure to use the correct schema user during table creation in the subsequent lab.
 
 ```sql
 <copy>
-CREATE USER <your_database_user> identified by <password>;
-GRANT CONNECT to <your_database_user>;
-GRANT RESOURCE to <your_database_user>;
-GRANT DB_DEVELOPER_ROLE to <your_database_user>;
-GRANT EXECUTE ON DBMS_CLOUD TO <your_database_user>;
-GRANT EXECUTE ON DBMS_VECTOR TO <your_database_user>;
-GRANT EXECUTE ON DBMS_VECTOR_CHAIN TO <your_database_user>;
-GRANT CREATE ANY DIRECTORY TO <your_database_user>;
+CREATE USER VECTOR identified by <password>;
+GRANT CONNECT to VECTOR;
+GRANT RESOURCE to VECTOR;
+GRANT DB_DEVELOPER_ROLE to VECTOR;
+GRANT EXECUTE ON DBMS_CLOUD TO VECTOR;
+GRANT EXECUTE ON DBMS_VECTOR TO VECTOR;
+GRANT EXECUTE ON DBMS_VECTOR_CHAIN TO VECTOR;
+GRANT CREATE ANY DIRECTORY TO VECTOR;
 </copy>
 ```
-
-Replace `<your_database_user>` with your database user.
 
 ## Task 3: Create the credentials for ADB to access the LLM service
 
