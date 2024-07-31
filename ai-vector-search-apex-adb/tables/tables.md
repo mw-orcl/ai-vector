@@ -159,7 +159,7 @@ In the code below we are embedding the user question, performing a vector search
 Compile the function `generate_text_response2` below.  It is called from APEX.
 
 ## OpenAI
-For connecting and authenticating to OpenAI you must have created the login credentials using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. 
+For connecting and authenticating to OpenAI you must have created the login credentials using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. Note: If you receive an HTTP response error ensure you have enough credits to use OpenAI.
 
 ```sql
 <copy>
