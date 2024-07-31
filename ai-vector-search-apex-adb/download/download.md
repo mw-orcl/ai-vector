@@ -74,7 +74,7 @@ Oracle's GenAI service is an LLM service from Oracle Cloud Infrastructure (OCI).
 
 ## OCI GenAI Service
 
-For OCI GenAI Service, run the following procedure:
+For OCI GenAI Service, run the following procedure. Important Note: Put the private key all on a single line.
 ```sql
 <copy>
 declare
