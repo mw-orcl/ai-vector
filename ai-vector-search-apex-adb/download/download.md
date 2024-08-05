@@ -115,7 +115,7 @@ end;
 
 ## Task 4: Download ONNX embedding models Using DBMS\_CLOUD.GET\_OBJECTS
 
-Now log in as `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
+Now log in as VECTOR or `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
 
 Run to create the staging directory.
 
@@ -130,7 +130,7 @@ CREATE DIRECTORY staging AS 'stage';
 BEGIN
   DBMS_CLOUD.GET_OBJECT(
     credential_name => 'OBJ_STORE_CRED',
-    object_uri => 'https://objectstorage.<region>.oraclecloud.com/n/<namespace>/b/<bucket>/o/<file>',
+    object_uri => '<URL to Pre-authenticated Requests>',
     directory_name => 'staging',
     file_name => '<file_name_in_adb>'
   );
@@ -139,14 +139,21 @@ END;
 </copy>
 ```
 
-For example, if your object URI is 'https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/HP5q2dfCzDstMprLYpR5x0LbhJb_SyxGNgHj985fd8GELKb9j2aLcEwUUpKmV7zW/n/oraclepartnersas/b/onnx/o/tinybert.onnx', and you want to download it to ADB, the command will look like this:
+URL to all-MiniLM-L6-v2 is:
+https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/CjS1gGPZaCZE2PoRWS5c6xmGNXK0v6ny6tNwoiVIOvqQrHux9NJ5oYo0dgLc6gOG/n/oraclepartnersas/b/onnx/o/all-MiniLM-L6-v2.onnx
+
+URL to tinybert.onnx is:
+https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/m5o31C0ol_8B_OzCLOLvqc2rWYNqz0M7kZZpMZHEaOyX7GQkhEw8_UNKoKBtcQYC/n/oraclepartnersas/b/onnx/o/tinybert.onnx
+
+
+For example, to get tinybert.onnx and download it to ADB, the command will look like this:
 
 ```sql
 <copy>
 BEGIN
   DBMS_CLOUD.GET_OBJECT(
     credential_name => 'OBJ_STORE_CRED',
-    object_uri => 'https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/HP5q2dfCzDstMprLYpR5x0LbhJb_SyxGNgHj985fd8GELKb9j2aLcEwUUpKmV7zW/n/oraclepartnersas/b/onnx/o/tinybert.onnx',
+    object_uri => 'https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/m5o31C0ol_8B_OzCLOLvqc2rWYNqz0M7kZZpMZHEaOyX7GQkhEw8_UNKoKBtcQYC/n/oraclepartnersas/b/onnx/o/tinybert.onnx',
     directory_name => 'staging',
     file_name => 'tinybert.onnx'
   );

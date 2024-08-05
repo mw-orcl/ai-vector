@@ -56,9 +56,10 @@ In this lab, you will:
 ## Task 2: Create database procedure and trigger 
 
 In this task you will:
-a. Create a procedure `insert_my_table_row` to insert the PDF, Word, or TXT file into the MY\_BOOKS table and return the doc\_id
 
-b. Create a trigger `trg_mybooks_vector_store_compound` to create embedding for the PDF and store it in the VECTOR\_STORE table.
+Create a procedure `insert_my_table_row` to insert the PDF, Word, or TXT file into the MY\_BOOKS table and return the doc\_id
+
+Create a trigger `trg_mybooks_vector_store_compound` to create embedding for the PDF and store it in the VECTOR\_STORE table.
 
 1. From the Database Actions SQL Worksheet create and run the procedure `insert_my_table_row` 
 
