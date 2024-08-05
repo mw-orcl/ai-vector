@@ -115,7 +115,7 @@ end;
 
 ## Task 4: Download ONNX embedding models Using DBMS\_CLOUD.GET\_OBJECTS
 
-Now log in as VECTOR or `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from your Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
+Now log in as VECTOR or `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from the Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
 
 Run to create the staging directory.
 
@@ -124,6 +124,8 @@ Run to create the staging directory.
 CREATE DIRECTORY staging AS 'stage';
 </copy>
 ```
+
+Run to get the onnx models.
 
 ```sql
 <copy>
@@ -139,7 +141,7 @@ END;
 </copy>
 ```
 
-URL to all-MiniLM-L6-v2 is:
+URL to all-MiniLM-L6-v2.onnx is:
 https://oraclepartnersas.objectstorage.us-ashburn-1.oci.customer-oci.com/p/CjS1gGPZaCZE2PoRWS5c6xmGNXK0v6ny6tNwoiVIOvqQrHux9NJ5oYo0dgLc6gOG/n/oraclepartnersas/b/onnx/o/all-MiniLM-L6-v2.onnx
 
 URL to tinybert.onnx is:
