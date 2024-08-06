@@ -125,14 +125,14 @@ result\_clob := admin.generate\_text_response2(:P3\_QUESTION,:P3\_ID,7) calls th
 Finally assign the result of the function to the APEX page item :P3_ANSWER. If the question is null, the answer will also be null; otherwise, it assigns the result of the function call.
 
 ## Troubleshooting
-When using DBMS_VECTOR.CREATE_CREDENTIAL, ensure your OCI GenAI private key is on one line if you get the following errors:
+When using DBMS\_VECTOR.CREATE\_CREDENTIAL, ensure your OCI GenAI private key is on one line if you get the following errors:
 ORA-20000: Oracle Text Error
-DRG-50857: oracle error in dbms_vector_chain.utl_to_generate_text
+DRG-50857: oracle error in dbms\_vector\_chain.utl\_to\_generate_text
 ORA-01403: no data found-20000
 
 Ensure you have enough credits with OpenAI if you get the following errors:
 ORA-20000: Oracle Text error: 
-DRG-50857: oracle error in dbms_vector_chain.utl_to_generate_text 
+DRG-50857: oracle error in dbms\_vector\_chain.utl\_to\_generate_text 
 ORA-29273: HTTP request failed-20000
 
 

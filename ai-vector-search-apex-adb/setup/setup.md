@@ -14,11 +14,10 @@ By completing this lab, you will achieve the following objectives:
 
 - Create and configure a new compartment for managing resources in OCI.
 - Establish policies to control access and permissions within the compartment.
-- Set up a user specifically for API key management and interaction.
-- Configure API keys for secure access and operations.
-- Obtain necessary OCIDs for compartments, users, and tenancies.
+- Create API keys for secure access and operations.
+- Obtain the necessary OCIDs for compartments, users, and tenancies.
 - Create and configure a storage bucket in OCI.
-- Generate a Pre-Authenticated Request (PAR) for secure bucket access.
+- Generate a Pre-Authenticated Request (PAR) for Object Storage bucket access.
 
 
 ## Task 1: Create an OCI Compartment
@@ -33,33 +32,8 @@ By completing this lab, you will achieve the following objectives:
 6. Save the compartment OCID for later use.
    ![compartment save](/images/compartmentsave.png)
 
-## Task 2: Create the Group and Policy
 
-1. Click the hamburger icon (≡), select Identity, and click Groups.
-2. Click Create Group.
-3. Enter the following information in the corresponding fields:
-    1. **Name**: ProdObjectManagers
-    2. **Description**: Users who can manage objects in compartment PROD
-4. Add the users that you want to the group as well you should see it listed in the configuration box.
-5. Click Create to complete the process.
-
-6. Create the ProdObjectManagementPolicies policy in the root compartment:
-7. Click the hamburger icon (≡), Click Identity & Security, and then click Policies.
-   ![Policies](/images/oci.png)
-8. Enter the following information in the corresponding fields:
-    - **Name**: ProdObjectManagementPolicies
-    - **Description**: Policies for users to manage objects in compartment PROD
-    - **Policy Versioning**: Keep Policy Current
-
-The members of the ProdObjectManagers group will require the ability to list the buckets in the compartment and manage any objects in these buckets. 
-
-9. Add the following statements to allow the respective policy actions:
-    - Allow group ProdObjectManagers to read buckets in compartment PROD
-    - Allow group ProdObjectManagers to manage objects in compartment PROD
-10. Click Create to complete the process.
-    ![Policies](/images/policyconfiguration.png)
-
-## Task 3: Create policy to enable access to OCI GenAI
+## Task 2: Create policy to enable access to OCI GenAI
 
 Oracle's GenAI service is an LLM service from Oracle Cloud Infrastructure (OCI). The GenAI service provides access to several LLMs that you can pick from.
 
@@ -78,7 +52,7 @@ Description: Public Gen AI Policy
 
 Compartment: select your own compartment
 
-Policy: allow any-user to manage generative-ai-family in compartment \<your compartment>
+Policy: allow \<your oci user> to manage generative-ai-family in compartment \<your compartment>
 
 3. Click Create.
 
@@ -86,34 +60,29 @@ Policy: allow any-user to manage generative-ai-family in compartment \<your comp
 
 Note: This policy allows any database in the specified compartment to access OCI Generative AI service. In a production environment, ensure your policy's scope is minimally inclusive.
 
-## Task 4: Save User OCID and Create API Keys 
+## Task 3: Create OCI API Key and save OCIDs and Fingerprint 
+
+We will use the OCI API Key and other OCIDs to authenticate to OCI GenAI service later.
 
 1. Click the profile icon in the top right of your OCI page, and click My Profile.
     ![Users](/images/userprofile.png)
-2. Save the user OCID for later use.
-    ![alt text](/images/ocidsave.png)
-
-## Task 5: Create OCI API Key
-
-1. Select API KEYS under the resources section and add api key.
+2. Select API KEYS under the resources section and add api key.
     ![alt text](images/addapikey.png)
-2. Click on download the private key and public key.
-![alt text](images/apikeyadd.png)
-3. Save the contents of the private key in a separate document.
-4. View the configuration file and select the copy button and save it in a separate document for later use.
-![alt text](images/saveconfig.png)
-5. Go ahead and close the tab after you have saved the contents. 
+3. Click on download the private key and public key.
+    ![alt text](images/apikeyadd.png)
+4. Open and save the contents of the private key in a notepad.
+5. View the configuration file and select the copy button and save it in a separate document for later use.
+    ![alt text](images/saveconfig.png)
+6. Go ahead and close after you have saved the contents. 
 
-
-## Task 6: Grab Your Parent Tenancy OCID
+## Task 4: Grab Your Parent Tenancy OCID
 
 1. Type tenancies in the OCI search bar, click the result, and then the tenancy name.
 ![alt text](images/tenancysearch.png)
 2. Copy the tenancy OCID and save it in a separate document for later use.
 ![alt text](images/copytenancyid.png)
 
-
-## Task 7: Create a Bucket
+## Task 5: Create a Bucket
 
 In Oracle Object Storage, a bucket is a container for storing objects. To access a bucket through the Oracle Cloud Infrastructure REST APIs, complete the following identity management tasks using the Oracle Cloud Infrastructure console and an account that has administrative rights within the tenancy (the root compartment).
 
@@ -130,7 +99,7 @@ In Oracle Object Storage, a bucket is a container for storing objects. To access
 1. Click Create Bucket to complete the process.
 2. To prepare for the successful creation and discovery of the WSM data profile later, upload a dummy file to the `apex_file_storage` bucket now using the Oracle Cloud Infrastructure console.
 
-## Task 8: Create a Pre-Authenticated Request (PAR)
+## Task 6: Create a Pre-Authenticated Request (PAR)
 
 1. Click Create Pre-Auth Request on the resources section from the newly created bucket.
 ![alt text](images/createpreauth.png)
