@@ -149,7 +149,7 @@ Create a trigger `trg_mybooks_vector_store_compound` to create embedding for the
     </copy>
     ```
 
-## Task 3: Option 1 OpenAI - Create function to generate response using OpenAI LLM
+## Task 3: Option 1 - Create function to generate response using OpenAI LLM
 
 The LLM involves processing both the user question and relevant text excerpts to generate responses tailored specifically to the provided context. It's essential to note that the nature of the response is contingent upon the question and the LLM utilized.
 
@@ -157,7 +157,7 @@ LLM prompt engineering enables you to craft input queries or instructions to cre
 
 In the code below we are embedding the user question, performing a vector search in the database for the relevant text chunks using a vector distance function. We pass the doc\_id to select the chunks related to a PDF document we loaded.  This improves the accuracy of the LLM response for the question by restricting the result within the content of PDF. We then send the text chunks to LLM to provide the response. 
 
-Compile the function `generate_text_response2` below.  It is called from APEX.
+1. From the Database Actions SQL Worksheet run the function `generate_text_response2` below.  It will be called from the APEX application later.
 
 ### OpenAI
 For connecting and authenticating to OpenAI you must have created the login credentials with an OpenAI API key using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. Note: If you receive an HTTP response error ensure you have enough credits to use OpenAI.
@@ -243,7 +243,7 @@ END;
 </copy>
 ```
 
-## Task 3: Option 2 OCI GenAI Service - Create function to generate response using OCI GenAI LLM
+## Task 3: Option 2 - Create function to generate response using OCI GenAI LLM
 
 The LLM involves processing both the user question and relevant text excerpts to generate responses tailored specifically to the provided context. It's essential to note that the nature of the response is contingent upon the question and the LLM utilized.
 
@@ -251,7 +251,7 @@ LLM prompt engineering enables you to craft input queries or instructions to cre
 
 In the code below we are embedding the user question, performing a vector search in the database for the relevant text chunks using a vector distance function. We pass the doc\_id to select the chunks related to a PDF document we loaded.  This improves the accuracy of the LLM response for the question by restricting the result within the content of PDF. We then send the text chunks to LLM to provide the response. 
 
-Compile the function `generate_text_response2` below.  It is called from APEX.
+1. From the Database Actions SQL Worksheet run the function `generate_text_response2` below.  It will be called from the APEX application later.
 
 ### OCI GenAI 
 For connecting and authenticating to OCI GenAI you must have created the login credentials using DBMS\_VECTOR.CREATE\_CREDENTIAL in the previous lab. 
