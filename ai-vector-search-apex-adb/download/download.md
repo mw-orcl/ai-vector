@@ -31,7 +31,7 @@ Before we dive into the procedure, make sure you have the following:
 Next head back to your ADB console, and select Database Actions and then SQL. Log in as ADMIN. This will open up an editor for us to perform statements.
 ![alt text](images/sqldev.png)
 
-Copy this statement and replace with your username and password for Oracle Cloud.
+2. Copy this statement and replace with your username and password for Oracle Cloud.
 
 ```sql
 <copy>
