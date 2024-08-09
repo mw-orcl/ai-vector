@@ -28,7 +28,7 @@ Before we dive into the procedure, make sure you have the following:
 
 1. First, create a credential object in your Oracle Autonomous Database that will store your Object Storage credentials. This is required for authenticating with Oracle Object Storage. 
 
-Next head back to your ADB console, and select Database Actions and then SQL. Log in as ADMIN. This will open up an editor for us to perform statements.
+Next head back to your ADB console, and select Database Actions and then SQL. Log in as ADMIN. This will open up an editor for us to run SQL statements.  You can also use SQL Developer.
 ![alt text](images/sqldev.png)
 
 2. Copy this statement and replace with your username and password for Oracle Cloud.
@@ -69,7 +69,7 @@ GRANT CREATE ANY DIRECTORY TO VECTOR;
 The OCI GenAI service provides access to several LLMs including Cohere and Llama.  
 API authentication is required. 
 
-1. From ADB Database Actions SQL Worksheet, login as VECTOR user and copy and run the SQL below and replace the following with your ocid and key information you got from the previous lab.
+1. From ADB Database Actions SQL Worksheet or SQL Developer, login as VECTOR user and copy and run the SQL below and replace the following with your ocid and key information you got from the previous lab.
 
 Important Note: Open your private key and copy the private key all onto a single line.
 
