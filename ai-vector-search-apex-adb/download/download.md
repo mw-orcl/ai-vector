@@ -69,7 +69,9 @@ GRANT CREATE ANY DIRECTORY TO VECTOR;
 The OCI GenAI service provides access to several LLMs including Cohere and Llama.  
 API authentication is required. 
 
-1. From ADB Database Actions SQL Worksheet, as ADMIN user enter and run the SQL below and replace the following with your ocid and key information you got from the previous lab. Important Note: Open your private key and copy the private key all onto a single line.
+1. From ADB Database Actions SQL Worksheet, login as VECTOR user and copy and run the SQL below and replace the following with your ocid and key information you got from the previous lab.
+
+Important Note: Open your private key and copy the private key all onto a single line.
 
 ```sql
 <copy>

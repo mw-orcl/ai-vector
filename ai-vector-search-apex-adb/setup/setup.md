@@ -52,9 +52,9 @@ Description: Public Gen AI Policy
 
 Compartment: select your own compartment
 
-```
-Policy: allow <your oci user> to manage generative-ai-family in compartment <your compartment>
-```
+
+Policy: allow group abc to manage generative-ai-family in compartment xyz
+
 
 3. Click Create.
 
