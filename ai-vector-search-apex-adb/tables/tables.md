@@ -17,6 +17,7 @@ In this lab, you will:
 ### Prerequisites
 
 * Environment with Oracle Autonomous Database 23ai
+* LLM API key configured with Create Credential from previous lab
 
 ## Task 1: Create tables to store the document, chunks, and vectors
 

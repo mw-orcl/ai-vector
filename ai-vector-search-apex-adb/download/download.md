@@ -112,8 +112,13 @@ end;
 ## Task 3: Option 2 - Create the credential for ADB to access OpenAI
 
 ### OpenAI
+The OpenAI service provides access to several LLMs including ChatGPT 4o.  
+API authentication is required. 
 
-For OpenAI, run the following procedure:
+1. From ADB Database Actions SQL Worksheet or SQL Developer, login as VECTOR user and copy and run the SQL below and use your OpenAI api key.
+
+Important Note: To use OpenAI API, you must have an API key and paid credits.
+
 ```sql
 <copy>
 
@@ -130,7 +135,7 @@ end;
 </copy>
 ```
 
-## Task 4: Download ONNX embedding models Using DBMS\_CLOUD.GET\_OBJECTS
+## Task 4: Download ONNX embedding models Using DBMS_CLOUD.GET_OBJECTS
 
 Now log in as VECTOR or `<your_database_user>`, use the DBMS\_CLOUD.GET\_OBJECTS procedure to download the ONNX embedding model files from the Oracle Object Storage bucket into Oracle ADB.  You will download two different models.
 
